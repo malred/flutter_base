@@ -62,7 +62,7 @@ class _IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
-    // 从provider里获取状态(监听模式可以实时更新组件,非监听模式则不会,性能好一点)
+    /// 从provider里获取状态(监听模式可以实时更新组件,非监听模式则不会,性能好一点)
     // int currentIndex = Provider.of<CurrentIndexProvider>(context).currentIndex;
     int currentIndex = context.watch<CurrentIndexProvider>().currentIndex;
     return Scaffold(

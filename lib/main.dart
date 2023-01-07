@@ -8,13 +8,14 @@ import './provider/CurrentIndexProvider.dart';
 import 'routes/Routes.dart';
 
 void main() {
-  // 初始化路由
+  /// 初始化路由
   FluroRouter router = new FluroRouter();
   Routes.configureRoutes(router);
-  // 初始化路由放到全局组件中
+
+  /// 初始化路由放到全局组件中
   G.router = router;
   runApp(
-    // 添加全局状态(可多个)
+    /// 添加全局状态(可多个)
     MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
@@ -29,7 +30,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
