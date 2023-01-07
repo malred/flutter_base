@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_project/utils/Global.dart';
 import 'package:provider/provider.dart';
 
@@ -39,6 +40,18 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: G.router!.generator,
       initialRoute: '/',
+      // 国际化
+      localizationsDelegates: [
+        // 本地化代理
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      // 支持的语言
+      supportedLocales: [
+        const Locale('en', 'US'), // 美国英文
+        const Locale('zh', 'CN'), // 中文简体
+      ],
     );
   }
 }
