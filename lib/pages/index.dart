@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/provider/CurrentIndexProvider.dart';
+import 'package:provider/provider.dart';
 
 import 'home/Home.dart';
 import 'mine/Mine.dart';
@@ -55,10 +57,14 @@ class _IndexState extends State<Index> {
       "page": Mine(),
     },
   ];
-  int currentIndex = 0;
+
+  // int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    // 从provider里获取状态(监听模式可以实时更新组件,非监听模式则不会,性能好一点)
+    // int currentIndex = Provider.of<CurrentIndexProvider>(context).currentIndex;
+    int currentIndex = context.watch<CurrentIndexProvider>().currentIndex;
     return Scaffold(
       appBar: pages[currentIndex]['appBar'],
       bottomNavigationBar: BottomNavigationBar(
@@ -68,9 +74,12 @@ class _IndexState extends State<Index> {
         // 点击后弹出下方文字,背景颜色也改变
         type: BottomNavigationBarType.shifting,
         onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
+          // setState(() {
+          //   currentIndex = index;
+          // });
+          // 修改provider里的状态
+          // Provider.of<CurrentIndexProvider>(context,listen: false).changeIndex(index);
+          context.read<CurrentIndexProvider>().changeIndex(index);
         },
       ),
       body: pages[currentIndex]['page'],

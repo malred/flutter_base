@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/utils/Global.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -10,8 +11,17 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('首页'),
+    return Container(
+      child: Column(
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              G.router!.navigateTo(context, '/login');
+            },
+            child: Text('跳转登录'),
+          )
+        ],
+      ),
     );
   }
 }
