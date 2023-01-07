@@ -4,7 +4,7 @@ Dio initDio() {
   /// 声明dio配置项
   BaseOptions _baseOptions = BaseOptions(
     /// 接口的基础地址
-    baseUrl: 'http://124.71.223.30:3000',
+    baseUrl: 'https://neteasecloudmusicapi.js.org',
     /// 超时时间
     connectTimeout: 5000,
   );
